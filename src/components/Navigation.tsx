@@ -1,21 +1,12 @@
-import { useState } from "react";
+interface NavigationProps{
+  theme:boolean;
+  toggleTheme: () => void;
+}
 
-type Theme = "light" | "dark";
+const Navigation = ({ theme, toggleTheme }: NavigationProps) => {
+const btnText = theme ? "Light" : "Dark";
 
-const Navigation = () => {
-  const [theme, setTheme] = useState<Theme>("light");
-  const btnText = theme === "light" ? "Dark" : "Light";
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
 
   return (
     <div className="w-full  shadow-2xl">
